@@ -10,7 +10,7 @@ import Question from '../../components/Question/Question';
 import quizQuestions from '../../api/quizQuestions';
 import Quiz from '../../components/Quiz/Quiz';
 import Result from '../../components/Result/Result';
-
+import questionaireService from '../../utils/questionaireService';
 
 
 class App extends Component {
@@ -65,6 +65,7 @@ class App extends Component {
         setTimeout(() => this.setNextQuestion(), 300);
       } else {
         setTimeout(() => this.setResults(this.getResults()), 300);
+        questionaireService.saveResult(this.getResults())
       }
   }  
 
@@ -142,25 +143,25 @@ class App extends Component {
         <div className="App-header">
           <h2>Character Quiz</h2>
         </div>
-        {this.state.result ? this.renderResult() : this.renderQuiz()}
         <NavBar
           user={this.state.user}
           handleLogout={this.handleLogout}
           handleSignupOrLogin={this.handleSignupOrLogin}
-        />
-        <QuizPage></QuizPage>
+          />
         <Route exact path='/signup' render={({ history }) => 
             <SignupPage
-              history={history}
-              handleSignupOrLogin={this.handleSignupOrLogin}
+            history={history}
+            handleSignupOrLogin={this.handleSignupOrLogin}
             />
           }/>
           <Route exact path='/login' render={({ history }) => 
             <LoginPage
-              history={history}
-              handleSignupOrLogin={this.handleSignupOrLogin}
+            history={history}
+            handleSignupOrLogin={this.handleSignupOrLogin}
             />
           }/>
+          {this.state.result ? this.renderResult() : this.renderQuiz()}
+          <QuizPage></QuizPage>
       </div>
     );
   }

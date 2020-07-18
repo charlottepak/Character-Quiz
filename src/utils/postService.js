@@ -1,5 +1,5 @@
 function saveResult(result) {
-  fetch("/api/questionaires/saveResult", {
+  fetch("/api/posts/saveResult", {
     method: "POST",
   });
 }

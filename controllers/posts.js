@@ -2,7 +2,8 @@ const Post = require('../models/post');
 
 module.exports = {
     saveResult,
-    create
+    create,
+    index
 }
 
 function saveResult() {
@@ -15,3 +16,9 @@ function create(req, res) {
         res.status(201).json(post)
     }) 
 }
+
+function index(req, res) {
+    Post.find({}, function (err, posts) {
+       res.status(200).json(posts)
+    })
+ }

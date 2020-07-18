@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import questionaireService from '../../utils/questionaireService';
+import postService from '../../utils/postService';
 
 class SharePage extends Component {
 

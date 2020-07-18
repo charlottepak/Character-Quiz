@@ -10,7 +10,7 @@ import Question from '../../components/Question/Question';
 import quizQuestions from '../../api/quizQuestions';
 import Quiz from '../../components/Quiz/Quiz';
 import Result from '../../components/Result/Result';
-import questionaireService from '../../utils/questionaireService';
+import postService from '../../utils/postService';
 
 
 class App extends Component {
@@ -65,7 +65,7 @@ class App extends Component {
         setTimeout(() => this.setNextQuestion(), 300);
       } else {
         setTimeout(() => this.setResults(this.getResults()), 300);
-        questionaireService.saveResult(this.getResults())
+        postService.saveResult(this.getResults())
       }
   }  
 

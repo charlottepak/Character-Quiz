@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import './App.css';
 import userService from '../../utils/userService';
-import QuizPage from '../QuizPage/QuizPage';
+// import QuizPage from '../QuizPage/QuizPage';
 import NavBar from '../../components/NavBar/NavBar';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
-import Question from '../../components/Question/Question';
 import quizQuestions from '../../api/quizQuestions';
 import Quiz from '../../components/Quiz/Quiz';
 import Result from '../../components/Result/Result';
-import postService from '../../utils/postService';
+// import postService from '../../services/postService';
 
+import AddPostPage from '../AddPostPage/AddPostPage';
+import PostsListPage from '../PostListPage/PostListPage';
+import EditPostPage from '../EditPostPage/EditPostPage';
+
+import * as postAPI from '../../utils/postService';
 
 class App extends Component {
   
@@ -26,19 +30,26 @@ class App extends Component {
       answer: '',
       answersCount: {},
       result: '',
-
+      posts: [],
+      
       user: userService.getUser()
     };
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
   }
-  componentDidMount() {
-    const shuffledAnswerOptions = quizQuestions.map((question) => this.shuffleArray(question.answers));  
-  
+  async componentDidMount() {
+    const shuffledAnswerOptions = quizQuestions.map((question) => this.shuffleArray(question.answers)); 
+    const posts = await postAPI.index(); 
     this.setState({
+      posts : posts,
       question: quizQuestions[0].question,
       answerOptions: shuffledAnswerOptions[0]
     });
   }
+  
+  // async componentDidMount() {
+  //   const posts = await postAPI.index();
+  //   this.setState({ posts });
+  // }
 
   shuffleArray(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -65,9 +76,33 @@ class App extends Component {
         setTimeout(() => this.setNextQuestion(), 300);
       } else {
         setTimeout(() => this.setResults(this.getResults()), 300);
-        postService.saveResult(this.getResults())
       }
   }  
+
+  handleAddPost = async newPostData => {
+    const newPost = await postAPI.create(newPostData);
+    this.setState(state => ({
+      posts: [...state.posts, newPost]
+    }), this.props.history.push('/postlist'));
+  }
+
+  handleDeletePost = async id => {
+    await postAPI.deleteOne(id);
+    this.setState(state => ({
+      posts: state.posts.filter( i => i._id !== id)
+    }), () => this.props.history.push('/postlist'));
+  }
+  
+  handleUpdatePost = async updatePostData => {
+    const updatePost = await postAPI.update(updatePostData);
+    const newPostArray = this.state.posts.map( i =>
+      i._id === updatePost._id ? updatePost : i);
+    this.setState(
+      {posts: newPostArray},
+      () => this.props.history.push('/postlist')
+    );
+  }
+
 
   setUserAnswer(answer) {
     this.setState((state) => ({
@@ -118,6 +153,7 @@ class App extends Component {
       this.setState({user: userService.getUser()});
     }
 
+
     renderQuiz() {
       return (
         <Quiz
@@ -160,8 +196,29 @@ class App extends Component {
             handleSignupOrLogin={this.handleSignupOrLogin}
             />
           }/>
+          <Route exact path='/postlist' render={(history) =>
+          <PostsListPage 
+          user={this.state.user}
+          posts ={this.state.posts}
+          handleDeletePost={this.handleDeletePost}
+          />  
+        } 
+        />
+          <Route exact path='/addpost' render={() => 
+            userService.getUser() ? 
+            <AddPostPage
+                handleAddPost = {this.handleAddPost}
+                />
+                :
+                <Redirect to='/login'/>
+              }/>
+          <Route exact path='/edit' render={({location}) =>
+            <EditPostPage 
+            handleUpdatePost={this.handleUpdatePost}
+            location = {location}
+            /> 
+          }/>
           {this.state.result ? this.renderResult() : this.renderQuiz()}
-          <QuizPage></QuizPage>
       </div>
     );
   }

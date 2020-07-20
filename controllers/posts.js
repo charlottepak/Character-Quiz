@@ -1,24 +1,37 @@
 const Post = require('../models/post');
 
 module.exports = {
-    saveResult,
+    index,
     create,
-    index
+    delete: deleteOne,
+    update,
+    show
+  };
+
+
+async function index(req, res) {
+    const posts = await Post.find({});
+    res.status(200).json(posts);
+}
+  
+async function create(req, res) {
+    req.body.userId = req.user._id;
+    req.body.userName = req.user.name;
+    const post = await Post.create(req.body);
+    res.status(201).json(post)
 }
 
-function saveResult() {
-    console.log("anything")
+async function deleteOne(req, res) {
+    const deletePost = await Post.findByIdAndRemove(req.params.id);
+    res.status(200).json(deletePost);
+}
+  
+async function update(req,res) {
+    const updatePost = await Post.findByIdAndUpdate(req.params.id, req.body, {new:true});
+    res.status(200).json(updatePost)
 }
 
-function create(req, res) {
-    const post = new Post(req.user.id);
-    Post.create(function(err) {
-        res.status(201).json(post)
-    }) 
-}
-
-function index(req, res) {
-    Post.find({}, function (err, posts) {
-       res.status(200).json(posts)
-    })
- }
+async function show(req, res) {
+    const post = await Post.findById(req.params.id);
+    res.status(200).json(post)
+};

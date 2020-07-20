@@ -65,8 +65,8 @@ var quizQuestions = [
                 content: "Candy"
             },
             {
-                type: "Calzones",
-                content: "Ben"
+                type: "Ben",
+                content: "Calzones"
             },
             {
                 type: "April",

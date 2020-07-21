@@ -92,15 +92,16 @@ class App extends Component {
     );
   };
 
-  handleUpdatePost = async (updatePostData) => {
-    const updatePost = await postAPI.update(updatePostData);
+  handleUpdatePost = async (updatePostData, id) => {
+    console.log('hitting')
+    const updatePost = await postAPI.update(updatePostData, id);
     console.log(updatePost);
     const newPostArray = this.state.posts.map((i) =>
       i._id === updatePost._id ? updatePost : i
     );
     this.setState({ posts: newPostArray }, () =>
       this.props.history.push("/postlist")
-    );
+      );
   };
 
   setUserAnswer(answer) {
@@ -175,7 +176,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
+        <div className="page-header">
           <h2>Character Quiz</h2>
         </div>
         <NavBar

@@ -19,7 +19,7 @@ function Quiz(props) {
   }
 
   return (
-    <div>
+    <div className="jumbotron">
       <QuestionCount counter={props.questionId} total={props.questionTotal} />
       <Question content={props.question} />
       <ul>

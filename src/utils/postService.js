@@ -27,8 +27,9 @@ export function deleteOne(id) {
   }).then(res => res.json());
 }
 
-export function update(post) {
-  return fetch(`${BASE_URL}/${post._id}`, {
+export function update(post, id) {
+  console.log('hitting update function')
+  return fetch(`${BASE_URL}/${id}`, {
     method: 'PUT',
     headers: {
       'content-type': 'application/json',

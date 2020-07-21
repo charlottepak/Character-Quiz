@@ -27,7 +27,8 @@ async function deleteOne(req, res) {
 }
   
 async function update(req, res) {
-    console.log('hit');
+    console.log('hitting controller update')
+    console.log(req.params)
     const updatePost = await Post.findByIdAndUpdate(req.params.id, req.body, {new:true});
     res.status(200).json(updatePost)
 }

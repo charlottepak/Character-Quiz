@@ -22,7 +22,7 @@ const Post = (props, user, post, handleDeletePost) => {
       )}{" "}
       {props.post.userId === user._id ? (
         <button onClick={() => props.handleDeletePost(props.post._id)}>
-          DELETE
+          x
         </button>
       ) : (
         <></>

@@ -12,10 +12,11 @@ class EditPostPage extends Component {
   };
 
   formRef = React.createRef();
+    
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.handleUpdatePost(this.state.formData);
+    this.props.handleUpdatePost(this.state.formData, this.props.location.state._id);
   };
 
   handleChange = (e) => {
@@ -30,6 +31,7 @@ class EditPostPage extends Component {
   };
 
   render() {
+    console.log(this.props)
     return (
       <>
         <h1>Edit Post</h1>

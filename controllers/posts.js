@@ -26,7 +26,8 @@ async function deleteOne(req, res) {
     res.status(200).json(deletePost);
 }
   
-async function update(req,res) {
+async function update(req, res) {
+    console.log('hit');
     const updatePost = await Post.findByIdAndUpdate(req.params.id, req.body, {new:true});
     res.status(200).json(updatePost)
 }

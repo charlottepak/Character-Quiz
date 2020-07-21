@@ -10,10 +10,9 @@ function PostCard({ post, handleDeletePost, user }) {
         User: {post.userName}
       </div>
 
-      <div className="card-action center">
+      <div>
         {post.userId === user._id ? (
           <Link
-            className="btn btn-xs btn-warning"
             to={{
               pathname: "/edit",
               state: {post},
@@ -26,7 +25,6 @@ function PostCard({ post, handleDeletePost, user }) {
         )}{" "}
         {post.userId === user._id ? (
           <button
-            className="btn btn-xs btn-warning"
             onClick={() => handleDeletePost(post._id)}
           >
             DELETE

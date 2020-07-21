@@ -26,7 +26,7 @@ class AddPostPage extends Component {
       invalidForm: !this.formRef.current.checkValidity(),
     });
   };
-ßß
+  ßß;
   render() {
     return (
       <>
@@ -36,8 +36,8 @@ class AddPostPage extends Component {
           autoComplete="off"
           onSubmit={this.handleSubmit}
         >
-          <div className="form-group">
-            <label className="white-text">Your character</label>
+          <div>
+            <label>Your character</label>
             <input
               name="character"
               value={this.state.formData.character}
@@ -45,8 +45,8 @@ class AddPostPage extends Component {
               required
             />
           </div>
-          <div className="form-group">
-            <label className="white-text">Comments</label>
+          <div>
+            <label>Comments</label>
             <input
               name="comments"
               value={this.state.formData.comments}
@@ -54,11 +54,7 @@ class AddPostPage extends Component {
               required
             />
           </div>
-          <button
-            type="submit"
-            className="btn"
-            disabled={this.state.invalidForm}
-          >
+          <button type="submit" disabled={this.state.invalidForm}>
             Share
           </button>
         </form>

@@ -6,7 +6,7 @@ function Result(props) {
   return (
     <div className="result">
       You got <strong>{props.quizResult}</strong>!<br></br>
-      <Link to='/addpost'>Share your results</Link>
+      <Link className="btn btn-default" to='/addpost'>Share your results</Link>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </div>
   );

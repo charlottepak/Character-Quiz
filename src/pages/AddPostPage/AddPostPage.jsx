@@ -36,8 +36,9 @@ class AddPostPage extends Component {
           autoComplete="off"
           onSubmit={this.handleSubmit}
         >
+          <br></br>
           <div>
-            <label>Your character</label>
+            <label>Your character: </label>
             <input
               name="character"
               value={this.state.formData.character}
@@ -46,7 +47,7 @@ class AddPostPage extends Component {
             />
           </div>
           <div>
-            <label>Comments</label>
+            <label>Comments: </label>
             <input
               name="comments"
               value={this.state.formData.comments}
@@ -54,7 +55,8 @@ class AddPostPage extends Component {
               required
             />
           </div>
-          <button type="submit" disabled={this.state.invalidForm}>
+          <br></br>
+          <button className="btn btn-default" type="submit" disabled={this.state.invalidForm}>
             Share
           </button>
         </form>

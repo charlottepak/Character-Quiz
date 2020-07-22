@@ -177,9 +177,11 @@ class App extends Component {
     return (
       <div className="App">
         <div className="page-header">
-          <h2>Character Quiz</h2>
+          <h2>Which "Parks And Recreation" Character Are You?</h2>
         </div>
         <NavBar
+          exact
+          path="/"
           user={this.state.user}
           handleLogout={this.handleLogout}
           handleSignupOrLogin={this.handleSignupOrLogin}

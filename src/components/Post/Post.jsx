@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 const Post = (props, user, post, handleDeletePost) => {
   return (
     <div>
-      <div>
+      <div className="resultTitle">
         {props.user.name} got {props.post.character} !<br></br>
-        {props.post.comments}
+      </div>
+      <div className="comments">
+        "{props.post.comments}"
       </div>
       {props.post.userId === user._id ? (
-        <Link
+        <Link className="btn btn-default" id="editbtn"
           to={{
             pathname: "/edit",
             state: props.post,
@@ -21,7 +23,7 @@ const Post = (props, user, post, handleDeletePost) => {
         <></>
       )}{" "}
       {props.post.userId === user._id ? (
-        <button onClick={() => props.handleDeletePost(props.post._id)}>
+        <button className="delete" onClick={() => props.handleDeletePost(props.post._id)}>
           x
         </button>
       ) : (

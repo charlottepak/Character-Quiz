@@ -4,12 +4,12 @@ import Post from "../../components/Post/Post";
 function PostListPage(props) {
   return (
     <>
-      <h1>Post List</h1>
+      <h1>All Posts</h1>
       <div>
-        <div>
+        <div className="cards">
           {props.posts.length ? (
             props.posts.map((post) => (
-              <div>
+              <div className="postCard">
                 <Post
                   key={post._id}
                   post={post}

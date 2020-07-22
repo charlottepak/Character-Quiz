@@ -23,7 +23,7 @@ var quizQuestions = [
                 content: "'As Seen on TV'"
             },
             {
-                type: "Jerry" & "Chris",
+                type: "Jerry",
                 content: "Retirement"
             },
             {
@@ -38,6 +38,10 @@ var quizQuestions = [
                 type: "Donna",
                 content: "Massages and manicures"
             },
+            {
+                type: "Chris",
+                content: "Investments"
+            }
 
         ]
     },

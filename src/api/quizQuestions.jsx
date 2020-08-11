@@ -180,51 +180,141 @@ var quizQuestions = [
             },
         ]
     },
-    // {
-    //     question: "What's your favorite food?",
-    //     answers: [
-    //         {
-    //             type: "",
-    //             content: ""
-    //         },
-    //         {
-    //             type: "",
-    //             content: ""
-    //         },
-    //         {
-    //             type: "",
-    //             content: ""
-    //         },
-    //         {
-    //             type: "",
-    //             content: ""
-    //         },
-    //         {
-    //             type: "",
-    //             content: ""
-    //         },
-    //         {
-    //             type: "",
-    //             content: ""
-    //         },
-    //         {
-    //             type: "",
-    //             content: ""
-    //         },
-    //         {
-    //             type: "",
-    //             content: ""
-    //         },
-    //         {
-    //             type: "",
-    //             content: ""
-    //         },
-    //         {
-    //             type: "",
-    //             content: ""
-    //         },
-    //     ]
-    // },
+    {
+        question: "",
+        answers: [
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+        ]
+    },
+    {
+        question: "",
+        answers: [
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+        ]
+    },
+    {
+        question: "",
+        answers: [
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+            {
+                type: "",
+                content: ""
+            },
+        ]
+    },
   ];
   
   export default quizQuestions;

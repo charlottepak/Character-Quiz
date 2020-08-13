@@ -226,47 +226,47 @@ var quizQuestions = [
         ]
     },
     {
-        question: "",
+        question: "What's your dream holiday destination?",
         answers: [
             {
-                type: "",
-                content: ""
+                type: "April",
+                content: "The dog park"
             },
             {
-                type: "",
-                content: ""
+                type: "Andy",
+                content: "Grand Canyon"
             },
             {
-                type: "",
-                content: ""
+                type: "Ron",
+                content: "Island of Islay, Scotland"
             },
             {
-                type: "",
-                content: ""
+                type: "Leslie",
+                content: "Washington D.C."
             },
             {
-                type: "",
-                content: ""
+                type: "Ben",
+                content: "Mordor"
             },
             {
-                type: "",
-                content: ""
+                type: "Chris",
+                content: "Tokyo"
             },
             {
-                type: "",
-                content: ""
+                type: "Jerry",
+                content: "Muncie, Indiana"
             },
             {
-                type: "",
-                content: ""
+                type: "Tom",
+                content: "Hawaii"
             },
             {
-                type: "",
-                content: ""
+                type: "Donna",
+                content: "Jamaica"
             },
             {
-                type: "",
-                content: ""
+                type: "Ann",
+                content: "Spain"
             },
         ]
     },
